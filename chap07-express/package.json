@@ -1,0 +1,21 @@
+{
+  "name": "chap07-express",
+  "version": "1.0.0",
+  "description": "Node,Express 활용한 프로젝트",
+  "license": "ISC",
+  "keywords": [
+    "Node",
+    "Express",
+    "Mysql",
+    "Nodemon"
+  ],
+  "author": "chanwoo jeong",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

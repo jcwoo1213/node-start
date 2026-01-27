@@ -1,0 +1,93 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "user01@test.com",
+      "name": "user01",
+      "role": "USER"
+    },
+    {
+      "id": 2,
+      "email": "admin@test.com",
+      "name": "admin",
+      "role": "ADMIN"
+    }
+  ],
+
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server 테스트 글",
+      "content": "json-server로 REST API 연습중입니다.",
+      "writerId": 1,
+      "createdAt": "2026-01-26 10:00:00",
+      "viewCount": 12
+    },
+    {
+      "id": 2,
+      "title": "두번째 글",
+      "content": "페이지네이션 테스트용 데이터",
+      "writerId": 2,
+      "createdAt": "2026-01-26 11:30:00",
+      "viewCount": 3
+    }
+  ],
+
+  "comments": [
+    {
+      "id": 1,
+      "postId": 1,
+      "writerId": 2,
+      "content": "좋은 글이네요 👍",
+      "createdAt": "2026-01-26 10:10:00"
+    },
+    {
+      "id": 2,
+      "postId": 1,
+      "writerId": 1,
+      "content": "감사합니다!",
+      "createdAt": "2026-01-26 10:15:00"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "무선 키보드",
+      "price": 45000,
+      "seller": "tech_store"
+    },
+    {
+      "id": 2,
+      "name": "게이밍 마우스",
+      "price": 38000,
+      "seller": "game_shop"
+    },
+    {
+      "id": 3,
+      "name": "27인치 모니터",
+      "price": 289000,
+      "seller": "display_world"
+    }
+  ],
+
+  "reviews": [
+    {
+      "id": 1,
+      "content": "타건감이 좋고 배터리가 오래가요",
+      "productId": 1,
+      "writer": "user01"
+    },
+    {
+      "id": 2,
+      "content": "가성비 최고입니다",
+      "productId": 1,
+      "writer": "user02"
+    },
+    {
+      "id": 3,
+      "content": "감도가 좋고 손에 잘 맞아요",
+      "productId": 2,
+      "writer": "user03"
+    }
+  ]
+}

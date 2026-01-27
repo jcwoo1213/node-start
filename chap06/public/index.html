@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>상품 상세 + 후기</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 24px auto;
+        padding: 0 12px;
+      }
+      .card {
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 16px;
+        margin-bottom: 16px;
+      }
+      .muted {
+        color: #666;
+        font-size: 14px;
+      }
+      .title {
+        font-size: 22px;
+        margin: 0 0 8px;
+      }
+      .price {
+        font-size: 18px;
+        font-weight: 700;
+        margin: 6px 0;
+      }
+      .review {
+        border-top: 1px solid #eee;
+        padding: 12px 0;
+      }
+      .review:first-child {
+        border-top: none;
+        padding-top: 0;
+      }
+      .error {
+        color: #c00;
+        font-weight: 700;
+      }
+      .row {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .badge {
+        display: inline-block;
+        background: #f2f2f2;
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 13px;
+      }
+      input,
+      button {
+        padding: 10px;
+        font-size: 14px;
+      }
+      button {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>상품 상세</h1>
+
+    <!-- 상품번호 바꿔서 조회할 수 있게 -->
+    <div class="card">
+      <div class="row">
+        <div>
+          <span class="badge">상품번호</span>
+          <input id="productIdInput" type="number" value="1" min="1" />
+        </div>
+        <div>
+          <button id="loadBtn">조회</button>
+        </div>
+      </div>
+      <p class="muted">json-server: http://localhost:3000</p>
+    </div>
+
+    <!-- 상품 정보 -->
+    <div id="productBox" class="card"></div>
+
+    <!-- 후기 리스트 -->
+    <div class="card">
+      <h2 style="margin-top: 0">상품 후기</h2>
+      <div id="reviewBox"></div>
+    </div>
+    <script src="js/post.js"></script>
+  </body>
+</html>
