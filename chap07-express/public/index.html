@@ -19,7 +19,6 @@
 
               <form
                 name="actionForm"
-                action="upload"
                 method="post"
                 enctype="multipart/form-data"
               >
@@ -74,7 +73,33 @@
         </div>
       </div>
     </div>
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+          <div class="card shadow">
+            <div class="card-body">
+              <h3 class="card-title text-center mb-4">파일전용</h3>
 
+              <form name="upload" method="post" enctype="multipart/form-data">
+                <div class="mb-4">
+                  <label for="user_img" class="form-label">파일</label>
+                  <input
+                    type="file"
+                    name="upload_file"
+                    id="upload_file"
+                    class="form-control"
+                  />
+                </div>
+
+                <div class="d-grid">
+                  <button type="submit" class="btn btn-primary">업로드</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script>
       document
         .querySelector(`form[name="actionForm"]`)
@@ -110,17 +135,34 @@
               console.log(err);
             });
         });
-      window.addEventListener("beforeunload", () => {
-        const user_id = document.querySelector(`input[name="user_id"]`).value;
-        const user_pw = document.querySelector(`input[name="user_pw"]`).value;
-        const user_name = document.querySelector(
-          `input[name="user_name"]`,
-        ).value;
-        navigator.sendBeacon(
-          "/beacon-test",
-          JSON.stringify({ msg: "hello beacon", user_id, user_pw, user_name }),
-        );
-      });
+      document
+        .querySelector(`form[name="upload"]`)
+        .addEventListener("submit", (e) => {
+          e.preventDefault();
+          const upload_file = document.querySelector(
+            `input[name="upload_file"]`,
+          ).files[0];
+          console.log(upload_file);
+          const form = new FormData();
+          form.append("upload_file", upload_file);
+          console.log(form);
+          fetch("/upload/member", {
+            method: "post",
+            body: form,
+          })
+            .then((resp) => resp.json())
+            .then((res) => {
+              console.log(res);
+              if (res.retCode == "Success") {
+                alert("성공");
+              } else {
+                alert(res.retMsg);
+              }
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        });
     </script>
   </body>
 </html>
